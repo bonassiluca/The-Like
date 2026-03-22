@@ -19,6 +19,18 @@ btn.addEventListener('mousedown', () => {
     btn.style.transform = 'translate(-50%, 2px) scale(0.95)';
 });
 
-btn.addEventListener('mouseup', () => {
-    btn.style.transform = 'translate(-50%, 0) scale(1)';
+window.addEventListener('DOMContentLoaded', () => {
+    const splash = document.getElementById('splash-screen');
+
+    // Dopo 2 secondi (2000ms) esegue la sparizione
+    setTimeout(() => {
+        splash.style.opacity = '0'; // Fa l'effetto sfumato
+        
+        // Dopo che la sfumatura è finita (0.8s), rimuove il blocco
+        setTimeout(() => {
+            splash.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Riabilita lo scroll
+        }, 800);
+
+    }, 2500);
 });
