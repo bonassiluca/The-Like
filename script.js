@@ -22,14 +22,12 @@ btn.addEventListener('mousedown', () => {
 window.addEventListener('DOMContentLoaded', () => {
     const splash = document.getElementById('splash-screen');
 
-    // Dopo 2 secondi (2000ms) esegue la sparizione
     setTimeout(() => {
-        splash.style.opacity = '0'; // Fa l'effetto sfumato
+        splash.style.opacity = '0'; 
         
-        // Dopo che la sfumatura è finita (0.8s), rimuove il blocco
         setTimeout(() => {
             splash.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Riabilita lo scroll
+            document.body.style.overflow = 'auto'; 
         }, 800);
 
     }, 2500);
