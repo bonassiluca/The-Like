@@ -19,6 +19,16 @@ btn.addEventListener('mousedown', () => {
     btn.style.transform = 'translate(-50%, 2px) scale(0.95)';
 });
 
-btn.addEventListener('mouseup', () => {
-    btn.style.transform = 'translate(-50%, 0) scale(1)';
+window.addEventListener('DOMContentLoaded', () => {
+    const splash = document.getElementById('splash-screen');
+
+    setTimeout(() => {
+        splash.style.opacity = '0'; 
+        
+        setTimeout(() => {
+            splash.style.display = 'none';
+            document.body.style.overflow = 'auto'; 
+        }, 800);
+
+    }, 2500);
 });
