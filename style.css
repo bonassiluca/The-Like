@@ -12,6 +12,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Fragment';
+    src: url('FragmentMono-Regular.ttf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 #splash-screen {
     position: fixed;
     top: 0;
