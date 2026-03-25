@@ -104,6 +104,8 @@ body {
     user-select: none;
     -webkit-user-select: none;
     cursor: default;
+    overflow: hidden;
+    position: fixed;
 }
 
 .titologrande {
@@ -126,6 +128,67 @@ body {
     pointer-events: none;
 }
 
+.titolosezione-sinistro {
+    font-family: 'LedLight', sans-serif;
+    font-size: 15rem;
+    color: white;
+    text-transform: uppercase;
+    mix-blend-mode: overlay;
+    
+    position: absolute;
+    bottom: 5vh;
+    left: 0;
+    transform: translateX(-15%);
+    
+    white-space: nowrap;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    letter-spacing: -7px;
+
+    pointer-events: none;
+}
+
+.titolosezione-destro {
+    font-family: 'LedLight', sans-serif;
+    font-size: 10rem;
+    color: white;
+    text-transform: uppercase;
+    mix-blend-mode: overlay;
+    
+    position: absolute;
+    bottom: 5vh;
+    right: 0;
+    transform: translateX(7%);
+    
+    white-space: nowrap;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    letter-spacing: -7px;
+
+    pointer-events: none;
+}
+
+.scrittapiccola {
+    font-family: 'Fragment', sans-serif;
+    font-size: 15px;
+    color: white;
+    text-transform: uppercase;
+    mix-blend-mode: overlay;
+    
+    position: absolute;
+    top: 40vh;
+    left: 7.5vw;
+    transform: translate(0%, 0%);
+    
+    margin: 0;
+    width: 30vw;
+    text-align: left; 
+
+    pointer-events: none;
+}
+
 .bottone {
     position: absolute;
     top: 62%;
@@ -142,7 +205,7 @@ body {
     width: 10vw;
     height: 8vh;
     font-size: 18px;
-    font-family: 'Anton', sans-serif; 
+    font-family: 'Fragment'; 
     font-weight: 300;
     background: transparent;
     border: 2px solid #ffffff;
@@ -311,7 +374,7 @@ nav > div {
     height: 100%;
     display: flex;
     background: #141412;
-    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
     will-change: transform;
     pointer-events: none;
     z-index: 1;
