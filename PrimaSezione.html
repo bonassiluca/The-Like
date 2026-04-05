@@ -6,24 +6,23 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Nosifer&family=Creepster&family=Metal+Mania&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Eater&display=swap" rel="stylesheet">
-    <title>PRIMA PAGINA</title>
+    <title>[01] PSYCH-PROFILE</title>
 </head>
-<body>
-<div id="splash-screen">
+<body class="scroll-page">
+
+    <!-- Schermata di caricamento -->
+    <!-- <div id="splash-screen">
         <div class="container">
             <div class="loader"></div>
             <div class="loader"></div>
             <div class="loader"></div>
         </div>
-    </div>
+    </div> -->
 
-    <div class="titolo">
-        <p class="titologrande">ANALYSIS</p>
-    </div>
-
+    <!-- Navbar -->
     <nav>
         <div class="info">
-            <p>[STARTING]</p>
+            <p>[PSYCH-PROFILE]</p>
         </div>
         <div class="logo">
             <p><a href="index.html">THE LIKE</a></p>
@@ -33,10 +32,11 @@
         </div>
     </nav>
 
+    <!-- Menu -->
     <div class="overlay">
         <div class="overlay-menu">
             <div class="menu-item">
-                <p><a href="PrimaSezione.html">[01] PSYCH-PROFILE</a></p>
+                <p><a href="#">[01] PSYCH-PROFILE</a></p>
             </div>
             <div class="menu-item">
                 <p><a href="algorithm.html">[02] SYSTEM CORE</a></p>
@@ -50,15 +50,46 @@
         </div>
     </div>
 
+    <section class="intro">
+        <p class="intro-text">
+            IMAGINE SCROLLING THROUGH YOUR PHONE ON A FRIDAY NIGHT...
+        </p>
+    </section>
+
+    <section class="feed">
+        <div class="card left fade-in">
+            <p>SOMEONE IS AT A CONCERT.</p>
+        </div>
+        <div class="card right fade-in">
+            <p>SOMEONE ELSE IS ON A BEACH.</p>
+        </div>
+        <div class="card left fade-in">
+            <p>ANOTHER PERSON JUST GOT PROMOTED.</p>
+        </div>
+    </section>
+
+    <section class="intro">
+        <p class="intro-text fade-in">
+            AND YOU'RE JUST THERE, SCROLLING, WATCHING, WISHING YOU WERE SOMEWHERE ELSE, DOING SOMETHING ELSE, WITH SOMEONE ELSE.
+        </p>
+    </section>
+    
+
+    <section class="intro">
+        <p class="intro-text fade-in">
+            THIS IS <a href="FOMO.html">FOMO</a>
+        </p>
+    </section>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
     <script src="https://unpkg.com/gsap@3/dist/CSSRulePlugin.min.js"></script>
 
+    <!-- Menu -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const splash = document.getElementById('splash-screen');
             const toggleButton = document.querySelector(".burger");
             let isOpen = false;
-
             setTimeout(() => {
                     splash.style.opacity = '0'; 
                 setTimeout(() => {
@@ -66,25 +97,20 @@
                     document.body.style.overflow = 'auto'; 
                 }, 800);
             }, 2500);
-
             gsap.set(".menu-item p", { y: 225 });
-
             const timeline = gsap.timeline({ paused: true });
-
             timeline.to(".overlay", {
                 duration: 1.5,
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
                 ease: "power4.inOut",
                 pointerEvents: "all"
             });
-
             timeline.to(".menu-item p", {
                 duration: 1.5,
                 y: 0,
                 stagger: 0.2,
                 ease: "power4.out"
             }, "-=1");
-
             toggleButton.addEventListener("click", function() {
                 if (isOpen) {
                     timeline.reverse();
@@ -93,13 +119,29 @@
                 }
                 isOpen = !isOpen;
             });
-
             window.addEventListener('mousemove', (e) => {
                 const x = Math.round((e.clientX / window.innerWidth) * 100);
                 const y = Math.round((e.clientY / window.innerHeight) * 100);
                 document.body.style.setProperty('--mouse-x', x + '%');
                 document.body.style.setProperty('--mouse-y', y + '%');
             });
+        });
+    </script>
+
+    <!-- Fade-in -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const elements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.2
+            });
+            elements.forEach(el => observer.observe(el));
         });
     </script>
 </body>
