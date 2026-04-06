@@ -8,17 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Eater&display=swap" rel="stylesheet">
     <title>[01] PSYCH-PROFILE</title>
 </head>
-<body class="scroll-page">
-
-    <!-- Schermata di caricamento -->
-    <div id="splash-screen">
-        <div class="container">
-            <div class="loader"></div>
-            <div class="loader"></div>
-            <div class="loader"></div>
-        </div>
-    </div>
-
+<body class="scroll-page fade-page">
     <!-- Navbar -->
     <nav>
         <div class="info">
@@ -52,55 +42,80 @@
 
     <section class="intro">
         <div class="titolo">
-            <p class="titologrande low-opacity">FOMO</p>
+            <p class="titologrande low-opacity">FNE</p>
         </div>
         <p class="intro-text">
-            FOMO [FEAR OF MISSING OUT] IS NOT JUST A FEELING
-            IT IS A PSYCHOLOGICAL PHENOMENON DEFINED AS A PERVASIVE APPREHENSION THAT OTHERS MIGHT BE HAVING REWARDING EXPERIENCES FROM WHICH ONE IS ABSENT.
+            FNE DOES NOT STAY CONFINED TO THE MOMENT OF POSTING A PHOTO OR ENTERING A ROOM. <br>
+            WHEN IT BECOMES A <strong>PERSISTENT PATTERN</strong>, <br>
+            IT BEGINS TO SILENTLY RESHAPE BEHAVIOUR, <br>
+            RELATIONSHIPS, AND IDENTITY, BOTH <strong>ONLINE</strong> AND <strong>OFFLINE</strong>.
         </p>
     </section>
 
+    <section class="content">
+        <p class="intro-text typewriter center">
+            WHAT IS THE IMPACT OF <strong>CHRONIC FNE</strong>?
+        </p>
+        <table class="fomo-table fade-in">
+            <tr>
+                <th>CONSEQUENCE</th>
+                <th>DESCRIPTION</th>
+            </tr>
+
+            <tr>
+                <td>SOCIAL ANXIETY DISORDER [SAD]</td>
+                <td>HIGH FNE IS ONE OF THE STRONGEST PREDICTORS OF SAD — A CLINICAL CONDITION IN WHICH FEAR OF JUDGMENT LEADS TO AVOIDANCE OF SOCIAL SITUATIONS</td>
+            </tr>
+
+            <tr>
+                <td>PERFECTIONISM & SELF-CENSORSHIP</td>
+                <td>INDIVIDUALS WITH HIGH FNE APPLY EXTREME SELF-EDITING BEFORE ANY SOCIAL ACTION — POSTS ARE DELETED, OPINIONS WITHHELD, OPPORTUNITIES AVOIDED TO PRE-EMPT POSSIBLE CRITICISM</td>
+            </tr>
+
+            <tr>
+                <td>RUMINATION</td>
+                <td>AFTER A SOCIAL INTERACTION, HIGH-FNE INDIVIDUALS REPLAY THE EVENT REPEATEDLY, SEARCHING FOR SIGNS THEY WERE JUDGED NEGATIVELY — EVEN WHEN NO EVIDENCE EXISTS</td>
+            </tr>
+
+            <tr>
+                <td>LOW SELF-ESTEEM</td>
+                <td>BECAUSE SELF-WORTH BECOMES CONTINGENT ON OTHERS' APPROVAL, ANY AMBIGUOUS SOCIAL SIGNAL IS INTERPRETED AS REJECTION, ERODING CONFIDENCE OVER TIME</td>
+            </tr>
+        </table>
+    </section>
+
     <section class="feed">
-        <div class="card center fade-in">
-            <p>
-                IT IS EASY TO DISMISS IT AS A TRIVIAL SOCIAL MEDIA HABIT. 
-                BUT FOMO DICTATES REAL BEHAVIOUR, REAL ANXIETY, AND REAL CONSEQUENCES FOR MENTAL HEALTH.
-            </p>
+        <p class="intro-text fade-in center">
+            ONLINE ENVIRONMENTS HAVE CREATED A UNIQUELY <strong>HOSTILE CONTEXT</strong> FOR HIGH-FNE INDIVIDUALS FOR SEVERAL REASONS:
+        </p>
+`        <div class="card left typewriter">
+            <p>JUDGMENT IS QUANTIFIED</p>
+        </div>
+        <div class="card right typewriter">
+            <p>JUDGMENT IS PERMANENT</p>
+        </div>
+        <div class="card left typewriter">
+            <p>JUDGMENT IS ASYMMETRIC</p>
+        </div>
+        <div class="card right typewriter">
+            <p>JUDGMENT IS DECONTEXTUALISED</p>
         </div>
     </section>
 
     <section class="intro">
         <p class="intro-text fade-in">
-            BUT HERE IS SOMETHING NO ONE TELLS YOU WHEN YOU OPEN INSTAGRAM:<br>
-            <br>
-             <strong>[YOU ARE NOT WATCHING REAL LIFE]</strong>
+            <a href="Algorithm.html">[AND SO, WHAT IS THE ALGORITHM BEHIND SOCIAL MEDIAS?]</a>
         </p>
     </section>
 
-    <section class="feed">
-        <div class="card center fade-in">
-            <p>
-                WHAT YOU SEE ONLINE IS A CONSTRUCTION, ONLY THE BEST 5% OF SOMEONE'S LIFE. <br>
-                BUT YOUR BRAIN COMPARES THAT 5% TO YOUR OWN 100%, AND CONCLUDES: <br>
-                <strong>[THEIR LIFE IS BETTER THAN MINE]. </strong><br>
-            </p>
-        </div>
-    </section>
-
-    <section class="intro">
-        <p class="intro-text typewriter">
-            THIS IS THE ENGINE OF FOMO. <br>
-            <strong>AND IT RUNS 24 HOURS A DAY.</strong>
-        </p>
-    </section>
-
-    <section class="feed">
-        <div class="card center fade-in">
-            <p>
-                <a href="FOMO 2.html">[IT STARTS IN THE BRAIN, NOT ON YOUR PHONE]</a>
-            </p>
-        </div>
-    </section>
+    <footer class="footer">
+        <p class="footer-title">[SOURCES]</p>
+        <ul class="footer-list">
+            <li>Weeks, J.W. et al. (2008). The Bivalent Fear of Evaluation model. Journal of Anxiety Disorders.</li>
+            <li>Fardouly, J. & Vartanian, L.R. (2016). Social media and body image concerns. Current Opinion in Psychology.</li>
+            <li>Vannucci, A. et al. (2017). Social media use and anxiety in emerging adults. Journal of Affective Disorders.</li>
+        </ul>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
     <script src="https://unpkg.com/gsap@3/dist/CSSRulePlugin.min.js"></script>
@@ -108,16 +123,8 @@
     <!-- Menu -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const splash = document.getElementById('splash-screen');
             const toggleButton = document.querySelector(".burger");
             let isOpen = false;
-            setTimeout(() => {
-                    splash.style.opacity = '0'; 
-                setTimeout(() => {
-                    splash.style.display = 'none';
-                    document.body.style.overflow = 'auto'; 
-                }, 800);
-            }, 2500);
             gsap.set(".menu-item p", { y: 225 });
             const timeline = gsap.timeline({ paused: true });
             timeline.to(".overlay", {
@@ -180,6 +187,12 @@
                 threshold: 0.5
             });
             elements.forEach(el => observer.observe(el));
+        });
+    </script>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            document.body.classList.add("loaded");
         });
     </script>
 </body>

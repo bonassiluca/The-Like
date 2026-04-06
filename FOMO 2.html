@@ -8,17 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Eater&display=swap" rel="stylesheet">
     <title>[01] PSYCH-PROFILE</title>
 </head>
-<body class="scroll-page">
-
-    <!-- Schermata di caricamento -->
-    <!-- <div id="splash-screen">
-        <div class="container">
-            <div class="loader"></div>
-            <div class="loader"></div>
-            <div class="loader"></div>
-        </div>
-    </div> -->
-
+<body class="scroll-page fade-page">
     <!-- Navbar -->
     <nav>
         <div class="info">
@@ -36,10 +26,10 @@
     <div class="overlay">
         <div class="overlay-menu">
             <div class="menu-item">
-                <p><a href="FOMO.html">[01] PSYCH-PROFILE</a></p>
+                <p><a href="PrimaSezione.html">[01] PSYCH-PROFILE</a></p>
             </div>
             <div class="menu-item">
-                <p><a href="algorithm.html">[02] SYSTEM CORE</a></p>
+                <p><a href="Algorithm.html">[02] SYSTEM CORE</a></p>
             </div>
             <div class="menu-item">
                 <p><a href="#">[03] COUNTERMEASURES</a></p>
@@ -171,6 +161,14 @@
         </p>
     </section>
 
+    <section class="feed">
+        <div class="card center fade-in">
+            <p>
+                <a href="SecondaSezione.html">[BUT NOW?]</a>
+            </p>
+        </div>
+    </section>
+
     <footer class="footer">
         <p class="footer-title">[SOURCES]</p>
         <ul class="footer-list">
@@ -186,16 +184,8 @@
     <!-- Menu -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const splash = document.getElementById('splash-screen');
             const toggleButton = document.querySelector(".burger");
             let isOpen = false;
-            setTimeout(() => {
-                    splash.style.opacity = '0'; 
-                setTimeout(() => {
-                    splash.style.display = 'none';
-                    document.body.style.overflow = 'auto'; 
-                }, 800);
-            }, 2500);
             gsap.set(".menu-item p", { y: 225 });
             const timeline = gsap.timeline({ paused: true });
             timeline.to(".overlay", {
@@ -258,6 +248,12 @@
                 threshold: 0.5
             });
             elements.forEach(el => observer.observe(el));
+        });
+    </script>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            document.body.classList.add("loaded");
         });
     </script>
 </body>

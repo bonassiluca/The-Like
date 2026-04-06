@@ -94,9 +94,10 @@
 
 body {
     margin: 0;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+
     filter: contrast(130%) brightness(120%); 
     background: 
         radial-gradient(
@@ -110,8 +111,6 @@ body {
     user-select: none;
     -webkit-user-select: none;
     cursor: default;
-    overflow: hidden;
-    position: fixed;
 }
 
 .fomo-img {
@@ -159,10 +158,6 @@ body {
     opacity: 0.25;
 
     pointer-events: none;
-}
-
-html, body {
-    overflow: hidden;
 }
 
 .titologrande {
@@ -462,8 +457,7 @@ html, body {
     font-family: "Fragment", monospace;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    position: fixed;
+    overflow-x: hidden !important;
 }
 
 a {
@@ -656,4 +650,30 @@ nav > div {
     font-size: 12px;
     color: rgba(255,255,255,0.7);
     margin-bottom: 10px;
+}
+
+/* PAGE FADE */
+body.fade-page {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+body.fade-page.loaded {
+    opacity: 1;
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+/* Firefox */
+html {
+    scrollbar-width: none;
+}
+
+/* IE/vecchi Edge */
+body {
+    -ms-overflow-style: none;
 }
