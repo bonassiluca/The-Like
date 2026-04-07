@@ -11,13 +11,13 @@
 <body class="scroll-page">
 
     <!-- Schermata di caricamento -->
-    <!-- <div id="splash-screen">
+    <div id="splash-screen">
         <div class="container">
             <div class="loader"></div>
             <div class="loader"></div>
             <div class="loader"></div>
         </div>
-    </div> -->
+    </div>
 
     <!-- Navbar -->
     <nav>
@@ -45,10 +45,7 @@
                 <p><a href="QuartaSezione.html">[03] RANKING SYSTEM</a></p>
             </div>
             <div class="menu-item">
-                <p><a href="#">[04] COUNTERMEASURES</a></p>
-            </div>
-            <div class="menu-item">
-                <p><a href="#">[05] EVALUATION-QUIZ</a></p>
+                <p><a href="QuintaSezione.html">[04] COUNTERMEASURES</a></p>
             </div>
         </div>
     </div>
@@ -160,11 +157,22 @@
         </div>
     </section>
 
-    <section class="intro">
-        <p class="intro-text fade-in">
+    <section class="feed">
+        <p class="intro-text center fade-in">
             <a href="https://www.mentimeter.com/app/presentation/al3vwtfbz357bjr95y6c9jmxs4aja1ng/edit?question=tnv6pyzmr8s8">[NOW MAKE YOUR CHOICE]</a>
         </p>
+        <div class="choice-images">
+            <img src="profilofamoso.png" alt="Profilo 1">
+            <img src="profilononfamoso.png" alt="Profilo 2">
+        </div>
     </section>
+
+    <div class="intro">
+        <p class="intro-text fade-in">
+            <a href="StudiLike.html">THE LIKE DOES NOT REFLECT VALUE.<br>
+            <strong>[IT CREATES IT]</strong></a>
+        </p>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
     <script src="https://unpkg.com/gsap@3/dist/CSSRulePlugin.min.js"></script>
@@ -172,8 +180,16 @@
     <!-- Menu -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            const splash = document.getElementById('splash-screen');
             const toggleButton = document.querySelector(".burger");
             let isOpen = false;
+            setTimeout(() => {
+                    splash.style.opacity = '0'; 
+                setTimeout(() => {
+                    splash.style.display = 'none';
+                    document.body.style.overflow = 'auto'; 
+                }, 800);
+            }, 2500);
             gsap.set(".menu-item p", { y: 225 });
             const timeline = gsap.timeline({ paused: true });
             timeline.to(".overlay", {

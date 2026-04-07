@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nosifer&family=Creepster&family=Metal+Mania&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Eater&display=swap" rel="stylesheet">
+    <title>[03] RANKING SYSTEM</title>
+</head>
+<body class="scroll-page fade-page">
+
+    <!-- Navbar -->
+    <nav>
+        <div class="info">
+            <p>[RANKING SYSTEM]</p>
+        </div>
+        <div class="logo">
+            <p><a href="index.html">THE LIKE</a></p>
+        </div>
+        <div class="toggle-btn">
+            <button class="burger"></button>
+        </div>
+    </nav>
+
+    <!-- Menu -->
+    <div class="overlay">
+        <div class="overlay-menu">
+            <div class="menu-item">
+                <p><a href="PrimaSezione.html">[01] PSYCH-PROFILE</a></p>
+            </div>
+            <div class="menu-item">
+                <p><a href="Algorithm.html">[02] SYSTEM CORE</a></p>
+            </div>
+            <div class="menu-item">
+                <p><a href="QuartaSezione.html">[03] RANKING SYSTEM</a></p>
+            </div>
+            <div class="menu-item">
+                <p><a href="QuintaSezione.html">[04] COUNTERMEASURES</a></p>
+            </div>
+        </div>
+    </div>
+
+    <section class="intro">
+        <div class="titolo">
+            <p class="titologrande low-opacity">BRAIN</p>
+        </div>
+        <p class="intro-text">
+            RESEARCHERS AT UCLA USED FMRI TO SCAN THE BRAINS OF <strong>32 TEENAGERS</strong> 
+            WHILE THEY BROWSED A SIMULATED INSTAGRAM-LIKE PLATFORM. <br>
+            EACH PHOTO WAS SHOWN WITH EITHER A <strong>HIGH</strong> OR A <strong>LOW</strong> NUMBER OF LIKES.
+        </p>
+    </section>
+
+    <section class="feed">
+        <div class="card left fade-in">
+            <p>
+                PHOTOS WITH MORE LIKES WERE SIGNIFICANTLY MORE LIKELY TO 
+                RECEIVE ADDITIONAL LIKES FROM PARTICIPANTS, REGARDLESS OF CONTENT QUALITY.
+            </p>
+        </div>
+        <div class="card right fade-in">
+            <p>
+                VIEWING PHOTOS WITH MANY LIKES ACTIVATED THE NUCLEUS ACCUMBENS, 
+                THE BRAIN'S REWARD CENTRE.
+            </p>
+        </div>
+        <p class="intro-text center fade-in">
+            THE <strong>SOCIAL INFLUENCE</strong> OF THE LIKE COUNT WAS 
+            STRONGER THAN THE PARTICIPANTS' OWN <strong>AESTHETIC JUDGEMENT</strong> OF THE CONTENT.
+        </p>
+    </section>
+
+    <section class="intro">
+        <p class="intro-text fade-in">
+            [NOT ONLY]
+        </p>
+    </section>
+
+    <section class="intro fade-in">
+        <div class="titolo">
+            <p class="titologrande low-opacity">LIKE REMOVAL</p>
+        </div>
+        <p class="intro-text fade-in">
+            IN 2019, INSTAGRAM RAN A <strong>LARGE-SCALE EXPERIMENT</strong> IN SEVERAL COUNTRIES 
+            IN WHICH LIKE COUNTS WERE <strong>HIDDEN</strong> FROM PUBLIC VIEW. 
+            ONLY THE PERSON WHO POSTED THE CONTENT COULD SEE THEIR OWN LIKE COUNT; <br>
+            <strong>OTHERS COULD NOT.</strong>
+        </p>
+    </section>
+
+    <section class="feed">
+        <div class="card left fade-in">
+            <p>
+                MANY USERS REPORTED FEELING LESS ANXIOUS 
+                ABOUT POSTING WHEN THE PUBLIC COUNT WAS HIDDEN.
+            </p>
+        </div>
+        <div class="card right fade-in">
+            <p>
+                A SIGNIFICANT PORTION OF INFLUENCERS AND CONTENT CREATORS OPPOSED THE CHANGE,
+                BECAUSE THEIR COMMERCIAL VALUE AND BRAND PARTNERSHIPS DEPENDED ON VISIBLE ENGAGEMENT METRICS.
+            </p>
+        </div>
+        <p class="intro-text center fade-in">
+            <strong> [INSTAGRAM ULTIMATELY REVERSED THE CHANGE IN MOST MARKETS, CITING USER PREFERENCE] </strong>
+        </p>
+    </section>
+
+    <section class="feed">
+        <div class="card center fade-in">
+            <p>
+                <a href="StudiLike 2.html">[WHEN VALUE BECOMES A NUMBER, BEHAVIOR FOLLOWS]</a>
+            </p>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/CSSRulePlugin.min.js"></script>
+
+    <!-- Menu -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const toggleButton = document.querySelector(".burger");
+            let isOpen = false;
+            gsap.set(".menu-item p", { y: 225 });
+            const timeline = gsap.timeline({ paused: true });
+            timeline.to(".overlay", {
+                duration: 1.5,
+                clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                ease: "power4.inOut",
+                pointerEvents: "all"
+            });
+            timeline.to(".menu-item p", {
+                duration: 1.5,
+                y: 0,
+                stagger: 0.2,
+                ease: "power4.out"
+            }, "-=1");
+            toggleButton.addEventListener("click", function() {
+                if (isOpen) {
+                    timeline.reverse();
+                } else {
+                    timeline.play();
+                }
+                isOpen = !isOpen;
+            });
+            window.addEventListener('mousemove', (e) => {
+                const x = Math.round((e.clientX / window.innerWidth) * 100);
+                const y = Math.round((e.clientY / window.innerHeight) * 100);
+                document.body.style.setProperty('--mouse-x', x + '%');
+                document.body.style.setProperty('--mouse-y', y + '%');
+            });
+        });
+    </script>
+
+    <!-- Fade-in -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const elements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.2
+            });
+            elements.forEach(el => observer.observe(el));
+        });
+    </script>
+
+    <!-- Typewriter -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const elements = document.querySelectorAll('.typewriter')
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+            elements.forEach(el => observer.observe(el));
+        });
+    </script>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            document.body.classList.add("loaded");
+        });
+    </script>
+</body>
+</html>
